@@ -1,0 +1,2 @@
+sudo apt-get install python3-dev libmysqlclient-dev
+pip3 install Flask flask_restful flask_sqlalchemy flask-migrate flask_jwt_extended  flask-cors flask_script flask-mail
