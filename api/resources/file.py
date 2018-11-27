@@ -18,7 +18,7 @@ class File(ProtectedResource):
         parser.add_argument('filename', help = 'This field cannot be blank', required = True)
         data = parser.parse_args()
 
-        if not re.match("^[A-Za-z0-9]+?$", data['filename']):
+        if not re.match("^[A-Za-z0-9\-\_\.\#]+?$", data['filename']):
             return {'message':'Invalid filename',
                     'status':'error'
                     }
@@ -49,7 +49,7 @@ class File(ProtectedResource):
 
         if file:
             filename = uuid.uuid4().hex
-            file.save(os.path.join(config["UPLOAD_METHOD"]["path"],filename))
+            file.save(os.path.join(config["UPLOADS"]["path"],filename))
             return {
                     'data':filename,
                     'message':'file uploaded',

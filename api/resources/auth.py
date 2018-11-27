@@ -6,8 +6,9 @@ from api.common.resources import BaseResource, ProtectedResource
 from api.models.user import UserModel, RevokedTokenModel
 from api.common.authorization import has_role
 
-class UserRegistration(ProtectedResource):
-
+# If you want to make user registrarions private, extend from ProtectedResource and uncomment has_role
+class UserRegistration(BaseResource):
+    #@has_role('admin')
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('username', help = 'This field cannot be blank', location='json', required = True)
@@ -107,4 +108,4 @@ class SecretResource(ProtectedResource):
     @jwt_required
     @has_role('admin')
     def get(self):
-        return {'message': 'Success! JWT verified'}
+        return {'message': 'Success! JWT verified with admin role'}

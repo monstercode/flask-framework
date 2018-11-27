@@ -50,7 +50,7 @@ Login
 curl -X POST 'http://127.0.0.1:3000/login' \
 -H 'Content-Type: Application/json' \
 -H 'accept: application/json' \
--d '{"username":"monstercode", "password":"123456", "email":"monster@code.com"}'
+-d '{"username":"monstercode", "password":"123456"}'
 ```
 
 Test that jwt is working
